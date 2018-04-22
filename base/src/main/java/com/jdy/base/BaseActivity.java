@@ -27,7 +27,9 @@ public abstract class BaseActivity extends AppCompatActivity implements Action,O
         }
     }
 
-    protected abstract void beforeInit();
+    protected  void beforeInit(){
+
+    }
 
     @Override
     public void initData(Bundle savedInstanceState) {
