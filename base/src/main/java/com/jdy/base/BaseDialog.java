@@ -45,7 +45,8 @@ public abstract class BaseDialog extends Dialog implements Action, OnClickListen
         ((TextView) getView(id)).setText(title);
     }
 
-    protected final <T extends View> T getView(@IdRes int id) {
+    @Override
+    public final <T extends View> T getView(@IdRes int id) {
         if (id == View.NO_ID) {
             return null;
         }

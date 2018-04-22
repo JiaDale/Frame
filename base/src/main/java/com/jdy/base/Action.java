@@ -1,6 +1,7 @@
 package com.jdy.base;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.view.View;
 
 interface Action {
@@ -19,5 +20,5 @@ interface Action {
 
     void hiddenView(View view);
 
-
+    <T extends View> T getView(@IdRes int id);
 }

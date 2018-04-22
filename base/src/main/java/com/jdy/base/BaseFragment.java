@@ -54,6 +54,7 @@ public abstract class BaseFragment extends Fragment implements Action, OnClickLi
         ((TextView) getView(id)).setText(title);
     }
 
+    @Override
     public final <T extends View> T getView(@IdRes int id) {
         if (id == View.NO_ID) {
             return null;

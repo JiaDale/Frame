@@ -67,4 +67,12 @@ public abstract class BaseActivity extends AppCompatActivity implements Action,O
     public void onClick(View v) {
 
     }
+
+    @Override
+    public <T extends View> T getView(int id) {
+        if (id == View.NO_ID) {
+            return null;
+        }
+        return findViewById(id);
+    }
 }
