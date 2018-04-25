@@ -14,7 +14,6 @@ public abstract class BaseRecyclerViewAdapter<T> extends Adapter<BaseRecyclerHol
     protected List<T> mData;
     protected int layoutId;
     protected T[] mArray;
-    private  T mObject;
 
     public BaseRecyclerViewAdapter(Context context, List<T> list) {
         this(context, list, 0);
@@ -29,12 +28,6 @@ public abstract class BaseRecyclerViewAdapter<T> extends Adapter<BaseRecyclerHol
     public BaseRecyclerViewAdapter(Context context, T[] array, int layoutId) {
         this.mContext = context;
         this.mArray = array;
-        this.layoutId = layoutId;
-    }
-
-    public BaseRecyclerViewAdapter(Context context, T object, int layoutId) {
-        this.mContext = context;
-        this.mObject = object;
         this.layoutId = layoutId;
     }
 
@@ -69,22 +62,14 @@ public abstract class BaseRecyclerViewAdapter<T> extends Adapter<BaseRecyclerHol
                 convert(baseViewHolder, mData.get(position));
             } else if (mArray != null) {
                 convert(holder, mArray[position]);
-            } else if (mObject != null) {
-                convert(holder, mObject);
             }
         }
     }
 
     protected abstract void convert(BaseRecyclerHolder holder, T bean);
 
-    protected  int  getItemCount(T mObject){
-        return 0;
-    }
-
     @Override
     public int getItemCount() {
-        if (mObject != null)
-            return getItemCount(mObject);
         return mData != null ? mData.size() : (mArray != null ? mArray.length : 0);
     }
 }
