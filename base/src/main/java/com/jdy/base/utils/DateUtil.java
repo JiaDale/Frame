@@ -41,6 +41,15 @@ public class DateUtil {
         return dateFormat(target, convert(current));
     }
 
+    public static int compare(Date current, Date target) {
+        return compare(current, target, formatString);
+    }
+
+    public static int compare(Date current, Date target, String format) {
+//        return convert(dateFormat(format, current)).compareTo(convert(dateFormat(format, target)));
+        return dateFormat(format, current).compareTo(dateFormat(format, target));
+    }
+
     public static boolean isValidDate(String format, String... dates) {
         return dateFormat.isValidDate(format, dates);
     }
